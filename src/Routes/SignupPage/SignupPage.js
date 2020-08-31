@@ -1,9 +1,10 @@
 import React from 'react';
+import './SignupPage.css';
 
 function SignupPage(props) {
   return (
     <div>
-      {"Signup Page here"}
+      {"Hello Signup Page"}
     </div>
   );
 }

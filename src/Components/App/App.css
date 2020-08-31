@@ -1,3 +1,10 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+}
+
 .App_header {
   display: flex;
   justify-content: flex-end;
@@ -8,5 +15,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: space-between;
+  text-align: center;
+  align-self: center;
+  /* height: 80%; */
+  /* flex: 1; */
+  border: 2px solid black;
+}
+
+.App_footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin: 10px;
 }
