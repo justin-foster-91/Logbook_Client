@@ -1,7 +1,17 @@
 .landingDisplay {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
 }
 
+.landingHeader {
+  margin: 3%;
+}
+
+.landingBody {
+  margin: 3%;
+}
+
 button {
-  margin: 10px;
+  margin: 3%;
 }

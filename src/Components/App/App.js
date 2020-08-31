@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import Footer from '../Footer/Footer';
 import LandingPage from "../../Routes/LandingPage/LandingPage";
 import SignupPage from "../../Routes/SignupPage/SignupPage";
+import LoginPage from "../../Routes/LoginPage/LoginPage"
 import AboutPage from "../../Routes/AboutPage/AboutPage";
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
           <Route
             path={'/signup'}
             component={SignupPage}
+          />
+          <Route
+            path={'/login'}
+            component={LoginPage}
           />
           <Route
             path={'/about'}

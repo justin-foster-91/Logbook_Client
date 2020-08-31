@@ -3,7 +3,9 @@ import React from 'react';
 function AboutPage(props) {
   return (
     <div>
-      {"Hello About Page"}
+      <h1>
+        {"Hello About Page"}
+      </h1>
     </div>
   );
 }
