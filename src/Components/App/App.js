@@ -14,6 +14,7 @@ function App() {
       <header className="App_header">
         <Header />
       </header>
+      {/* TODO: Consistent title placement on each page. */}
       <main className="App_main">
         <Switch>
           <Route

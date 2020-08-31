@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import LandingPage from './LandingPage';
 
 it('renders without crashing', () => {
-  // create DOM element to render code into
   const div = document.createElement('div');
-
-  // render the component
-  ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, div);
-
-  // clean up code
+  ReactDOM.render(<BrowserRouter><LandingPage /></BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 })
