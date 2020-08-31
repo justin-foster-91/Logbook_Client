@@ -12,10 +12,10 @@ function LoginPage(props) {
       </div>
       <section className="loginBody">
         <form>
-          <label for="userName">Username:</label><br/>
+          <label htmlFor="userName">Username:</label><br/>
           <input type="text"/>
 
-          <label for="password">Password:</label><br/>
+          <label htmlFor="password">Password:</label><br/>
           <input type="text"/>
 
           {/* TODO: Set up submit handle function */}

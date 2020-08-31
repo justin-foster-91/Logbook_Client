@@ -13,13 +13,13 @@ function SignupPage(props) {
       <section className="signupBody">
         {/* TODO: Make confirm password require identical input to password */}
         <form>
-          <label for="userName">Username:</label><br/>
+          <label htmlFor="userName">Username:</label><br/>
           <input type="text"/>
 
-          <label for="password">Password:</label><br/>
+          <label htmlFor="password">Password:</label><br/>
           <input type="text"/>
 
-          <label for="passwordConf">Confirm Password:</label><br/>
+          <label htmlFor="passwordConf">Confirm Password:</label><br/>
           <input type="text"/>
 
           {/* TODO: Set up submit handle function */}

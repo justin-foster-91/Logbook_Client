@@ -7,6 +7,7 @@ import LandingPage from "../../Routes/LandingPage/LandingPage";
 import SignupPage from "../../Routes/SignupPage/SignupPage";
 import LoginPage from "../../Routes/LoginPage/LoginPage"
 import AboutPage from "../../Routes/AboutPage/AboutPage";
+import NotFoundPage from "../../Routes/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -14,7 +15,6 @@ function App() {
       <header className="App_header">
         <Header />
       </header>
-      {/* TODO: Consistent title placement on each page. */}
       <main className="App_main">
         <Switch>
           <Route
@@ -32,6 +32,9 @@ function App() {
           <Route
             path={'/about'}
             component={AboutPage}
+          />
+          <Route 
+            component={NotFoundPage}
           />
         </Switch>
       </main>
