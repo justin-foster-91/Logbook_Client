@@ -1,8 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
+import LoginForm from '../../Components/LoginForm/LoginForm';
 
-function LoginPage(props) {
+const LoginPage = (props) => {
+  
+  const handleLoginSuccess = () => {
+    const { location, history } = this.props
+    // LEARN: I removed location.state, did that break anything?
+    const destination = (location || {}).from || '/'
+    history.push(destination)
+  }
+  
   return (
     <div className="loginDisplay">
       <div className="loginHeader">
@@ -10,20 +19,23 @@ function LoginPage(props) {
           {"Hello Login Page"}
         </h1>
       </div>
+
       <section className="loginBody">
-        <form>
+        <LoginForm
+          onLoginSuccess={handleLoginSuccess}
+        />
+        {/* <form>
           <label htmlFor="userName">Username:</label><br/>
           <input type="text"/>
 
           <label htmlFor="password">Password:</label><br/>
           <input type="text"/>
 
-          {/* TODO: Set up submit handle function */}
-          <input type="submit" value="Sign Up" className="formButton"/>
-        </form>
+          <input type="submit" value="Log In" className="formButton"/>
+        </form> */}
 
         <div className="formFooter">
-          <p>New to Starfinder Logger?</p>
+          <p>New to Starfinder Logbook?</p>
           <p>
             <Link to="/signup">
               Signup here!
@@ -33,6 +45,13 @@ function LoginPage(props) {
       </section>
     </div>
   );
+}
+
+LoginPage.defaultProps = {
+  location: {},
+  history: {
+    push: () => {},
+  },
 }
 
 export default LoginPage;

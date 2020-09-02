@@ -5,11 +5,13 @@ import Header from "../Header/Header";
 import Footer from '../Footer/Footer';
 import LandingPage from "../../Routes/LandingPage/LandingPage";
 import SignupPage from "../../Routes/SignupPage/SignupPage";
-import LoginPage from "../../Routes/LoginPage/LoginPage"
+import LoginPage from "../../Routes/LoginPage/LoginPage";
+import HangarPage from "../../Routes/HangarPage/HangarPage";
+import CustomizePage from "../../Routes/CustomizePage/CustomizePage";
 import AboutPage from "../../Routes/AboutPage/AboutPage";
 import NotFoundPage from "../../Routes/NotFoundPage/NotFoundPage";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App_header">
@@ -28,6 +30,14 @@ function App() {
           <Route
             path={'/login'}
             component={LoginPage}
+          />
+          <Route
+            path={'/hangar'}
+            component={HangarPage}
+          />
+          <Route
+            path={'/customize'}
+            component={CustomizePage}
           />
           <Route
             path={'/about'}

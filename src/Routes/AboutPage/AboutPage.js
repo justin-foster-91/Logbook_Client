@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AboutPage(props) {
+const AboutPage = (props) => {
   return (
     <div>
       <h1>
@@ -9,5 +9,11 @@ function AboutPage(props) {
     </div>
   );
 }
+
+AboutPage.defaultProps = {
+    history: {
+      push: () => {},
+    },
+  }
 
 export default AboutPage;

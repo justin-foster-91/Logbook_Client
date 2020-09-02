@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SignupPage.css';
+import SignupForm from '../../Components/SignupForm/SignupForm';
 
-function SignupPage(props) {
+const SignupPage = (props) => {
+
+  const handleRegistrationSuccess = user => {
+    const { history } = props
+    history.push('/login')
+  }
+
   return (
     <div className="signupDisplay">
       <div className="signupHeader">
@@ -11,21 +18,9 @@ function SignupPage(props) {
         </h1>
       </div>
       <section className="signupBody">
-        {/* TODO: Make confirm password require identical input to password */}
-        <form>
-          <label htmlFor="userName">Username:</label><br/>
-          <input type="text"/>
-
-          <label htmlFor="password">Password:</label><br/>
-          <input type="text"/>
-
-          <label htmlFor="passwordConf">Confirm Password:</label><br/>
-          <input type="text"/>
-
-          {/* TODO: Set up submit handle function */}
-          <input type="submit" value="Sign Up" className="formButton"/>
-        </form>
-
+        <SignupForm 
+          onRegistrationSuccess={handleRegistrationSuccess}
+        />
         <div className="formFooter">
           <p>Already have an account?</p>
           <p>
@@ -37,6 +32,12 @@ function SignupPage(props) {
       </section>
     </div>
   );
+}
+
+SignupPage.defaultProps = {
+  history: {
+    push: () => {},
+  },
 }
 
 export default SignupPage;

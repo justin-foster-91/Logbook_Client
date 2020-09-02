@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './LandingPage.css';
 // import SignupPage from '../SignupPage/SignupPage'
 
-function LandingPage(props) {
+const LandingPage = (props) => {
   return (
     <div className="landingDisplay">
       <div className="landingHeader">
@@ -24,6 +24,12 @@ function LandingPage(props) {
       </section>
     </div>
   );
+}
+
+LandingPage.defaultProps = {
+  history: {
+    push: () => {},
+  },
 }
 
 export default LandingPage;

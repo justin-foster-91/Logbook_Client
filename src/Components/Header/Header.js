@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-function Header(props) {
+const Header = (props) => {
   return (
     <div className="header">
       <Link to='/signup'>
