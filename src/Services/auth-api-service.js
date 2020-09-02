@@ -3,6 +3,14 @@ import TokenService from './token-service'
 // import IdleService from './idle-service'
 
 const AuthApiService = {
+  getShips(){
+    console.log("Fetch here");
+    return fetch(`${config.API_ENDPOINT}/hangar`, {
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+  },
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
@@ -45,6 +53,7 @@ const AuthApiService = {
         return res
       })
   },
+
   // postRefreshToken() {
   //   return fetch(`${config.API_ENDPOINT}/auth/refresh`, {
   //     method: 'POST',

@@ -18,6 +18,7 @@ const App = () => {
         <Header />
       </header>
       <main className="App_main">
+        {/*  TODO: I need private and public routes */}
         <Switch>
           <Route
             exact path={'/'}

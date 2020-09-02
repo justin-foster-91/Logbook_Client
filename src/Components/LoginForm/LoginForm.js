@@ -10,7 +10,7 @@ const LoginForm = (props) => {
   // TODO: I want to move the error message to the SignupPage. Maybe a pop-up tooltip?
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
-    // console.log("Hello World")
+    console.log("Handle Submit")
     const { username, password } = e.target;
 
     // handleSubmitJwtAuth = ev => {
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
       .catch(res => {
         setError(res.error);
       })
-      // FIXME: This part hates me
+      // // FIXME: This part hates me
     },[setError] 
   )
 
