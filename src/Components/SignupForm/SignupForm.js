@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Button, Input, Required } from '../Utils/Utils';
+import { Input } from '../Utils/Utils';
 import AuthApiService from '../../Services/auth-api-service';
 import './SignupForm.css';
 

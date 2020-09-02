@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Button, Input, Required } from '../Utils/Utils';
+import { Input } from '../Utils/Utils';
 import AuthApiService from '../../Services/auth-api-service';
 import './LoginForm.css';
 
@@ -8,16 +8,12 @@ const LoginForm = (props) => {
 
   // FIXME: Change hooks and change Input to html instead of Component.
   // TODO: I want to move the error message to the SignupPage. Maybe a pop-up tooltip?
-  const handleSubmit = useCallback((e) => {
+  const handleSubmitJwtAuth = useCallback((e) => {
     e.preventDefault()
-    console.log("Handle Submit")
-    const { username, password } = e.target;
 
-    // handleSubmitJwtAuth = ev => {
-    //   ev.preventDefault()
-    //   this.setState({ error: null })
-    //   const { user_name, password } = ev.target
-  
+    this.setState({ error: null })
+    const { username, password } = e.target
+
     AuthApiService.postLogin({
       username: username.value,
       password: password.value,
@@ -31,7 +27,7 @@ const LoginForm = (props) => {
       .catch(res => {
         setError(res.error);
       })
-      // // FIXME: This part hates me
+    // FIXME: This part hates me
     },[setError] 
   )
 
@@ -40,7 +36,7 @@ const LoginForm = (props) => {
       <div>
         <form
           className="SignupForm"
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => handleSubmitJwtAuth(e)}
         >
           <label htmlFor="userName">Username: </label><br/>
           <Input
