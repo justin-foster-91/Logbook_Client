@@ -5,7 +5,7 @@ import SignupForm from '../../Components/SignupForm/SignupForm';
 
 const SignupPage = (props) => {
 
-  const handleRegistrationSuccess = user => {
+  const handleSignupSuccess = user => {
     const { history } = props
     history.push('/login')
   }
@@ -19,7 +19,7 @@ const SignupPage = (props) => {
       </div>
       <section className="signupBody">
         <SignupForm 
-          onRegistrationSuccess={handleRegistrationSuccess}
+          onSignupSuccess={handleSignupSuccess}
         />
         <div className="formFooter">
           <p>Already have an account?</p>

@@ -6,10 +6,8 @@ import LoginForm from '../../Components/LoginForm/LoginForm';
 const LoginPage = (props) => {
   
   const handleLoginSuccess = () => {
-    const { location, history } = this.props
-    // LEARN: I removed location.state, did that break anything?
-    const destination = (location || {}).from || '/'
-    history.push(destination)
+    const { history } = props
+    history.push('/hangar')
   }
   
   return (

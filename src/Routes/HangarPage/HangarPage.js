@@ -1,26 +1,35 @@
+import React, { useEffect } from 'react';
+// import AuthApiService from '../../Services/auth-api-service'
 import './HangarPage.css';
 
-import React, { Component } from 'react';
-import AuthApiService from '../../Services/auth-api-service'
+const shipList = [
+  {id:1, name:"Ship 1"},
+  {id:2, name:"Ship 2"},
+  {id:3, name:"Ship 3"},
+  {id:4, name:"Ship 4"}
+];
 
-class HangarPage extends Component {
 
-  componentDidMount() {
-    // this.context.clearError()
-    AuthApiService.getShips()
-      .then(ships => {
-        console.log(ships);
-      })
-      // .catch(this.context.setError)
-  }
+const HangarPage = () => {
 
-  render() {
+  useEffect(() => {
+    // AuthApiService.getShips()
+    //   .then(ships => {
+    //     console.log(ships);
+    //   })
+  },[])
+
+
     return (
       <div>
-        
+        {shipList.map((ship) => {
+          return (
+          <div>{ship.id}{ship.name}</div>
+          )
+        })}
       </div>
     );
-  }
+  
 }
 
 export default HangarPage;

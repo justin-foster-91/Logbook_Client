@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import { Input } from '../Utils/Utils';
+import React, { useState } from 'react';
 import AuthApiService from '../../Services/auth-api-service';
 import './SignupForm.css';
 
@@ -8,7 +7,7 @@ const SignupForm = (props) => {
 
   // FIXME: Change hooks and change Input to html instead of Component.
   // TODO: I want to move the error message to the SignupPage. Maybe a pop-up tooltip?
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     // console.log("Hello World")
     const { username, password, passwordVerify } = e.target;
@@ -34,9 +33,8 @@ const SignupForm = (props) => {
       .catch(res => {
         setError(res.error);
       })
-      // FIXME: This part hates me
-    },[setError] 
-  )
+    }
+  
 
     return (
     <>
@@ -46,32 +44,13 @@ const SignupForm = (props) => {
           onSubmit={(e) => handleSubmit(e)}
         >
           <label htmlFor="userName">Username: </label><br/>
-          <Input
-            name='username'
-            type='text'
-            required
-            id='userName'
-          >
-          </Input>
+          <input className='username' type='text' required id='username'></input>
 
           <label htmlFor="password">Password:</label><br/>
-          <Input
-            name='password'
-            type='text'
-            required
-            id='password'
-          >
-          </Input>
+          <input className='password' type='text' required id='password'></input>
 
           <label htmlFor="passwordVerify">Confirm Password:</label><br/>
-          {/* <input type="text" /> */}
-          <Input
-            name='passwordVerify'
-            type='text'
-            required
-            id='passwordVerify'
-          >
-          </Input>
+          <input className='passwordVerify' type='text' required id='passwordVerify'></input>
 
           <input type="submit" value="Sign Up" className="formButton"/>
         </form>
