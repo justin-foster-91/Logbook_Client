@@ -3,7 +3,7 @@ import './CustomizeParts.css';
 
 const CustomizeParts = () => {
   return (
-    <div>
+    <div className="customizeDisplay">
       
     </div>
   );
