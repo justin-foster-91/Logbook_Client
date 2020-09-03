@@ -35,6 +35,7 @@ const App = () => {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
+    // FIXME: TypeError: undefined has no properties 
     this.forceUpdate()
   }
 
@@ -44,12 +45,12 @@ const App = () => {
         <Header />
       </header>
       <main className="App_main">
-        {/*  TODO: I need private and public routes */}
         <Switch>
           <Route
             exact path={'/'}
             component={LandingPage}
           />
+          {/* FIXME: Add PublicOnlyRoute back in and debug it */}
           <PublicOnlyRoute
             path={'/signup'}
             component={SignupPage}
@@ -58,6 +59,7 @@ const App = () => {
             path={'/login'}
             component={LoginPage}
           />
+          {/* FIXME: HangarPage is colored oddly. Also, should this be /hangar/:hangarId */}
           <PrivateRoute
             path={'/hangar'}
             component={HangarPage}

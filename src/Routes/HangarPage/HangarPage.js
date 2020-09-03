@@ -1,32 +1,22 @@
-import React, { useEffect } from 'react';
-// import AuthApiService from '../../Services/auth-api-service'
+import React from 'react';
 import './HangarPage.css';
+import HangarDisplay from '../../Components/HangarDisplay/HangarDisplay';
 
-const shipList = [
-  {id:1, name:"Ship 1"},
-  {id:2, name:"Ship 2"},
-  {id:3, name:"Ship 3"},
-  {id:4, name:"Ship 4"}
-];
+const HangarPage = (props) => {
 
-
-const HangarPage = () => {
-
-  useEffect(() => {
-    // AuthApiService.getShips()
-    //   .then(ships => {
-    //     console.log(ships);
-    //   })
-  },[])
-
-
+  const clickNewShip = () => {
+    console.log("Create Ship clicked");
+    // TODO: How do I make this route to the customize page?
+    const { history } = props
+    history.push('/customize')
+  }
     return (
       <div>
-        {shipList.map((ship) => {
-          return (
-          <div>{ship.id}{ship.name}</div>
-          )
-        })}
+        <h1>
+          {"Hello Hangar Page"}
+        </h1>
+        <HangarDisplay />
+        <button onClick={() => clickNewShip()}>Create New Ship</button>
       </div>
     );
   

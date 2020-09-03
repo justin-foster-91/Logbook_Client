@@ -1,0 +1,17 @@
+.hangarRoom {
+  display: flex;
+  justify-content: center;
+}
+
+.shipId {
+  border: 2px solid black;
+  min-width: 50px;
+  margin: 2px;
+  flex-grow: 1;
+}
+
+.shipName {
+  border: 2px solid black;
+  margin: 2px;
+  flex-grow: 3;
+}

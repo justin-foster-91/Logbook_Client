@@ -22,15 +22,6 @@ const LoginPage = (props) => {
         <LoginForm
           onLoginSuccess={handleLoginSuccess}
         />
-        {/* <form>
-          <label htmlFor="userName">Username:</label><br/>
-          <input type="text"/>
-
-          <label htmlFor="password">Password:</label><br/>
-          <input type="text"/>
-
-          <input type="submit" value="Log In" className="formButton"/>
-        </form> */}
 
         <div className="formFooter">
           <p>New to Starfinder Logbook?</p>
