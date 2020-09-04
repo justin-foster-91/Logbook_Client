@@ -6,7 +6,6 @@ const HangarPage = (props) => {
 
   const clickNewShip = () => {
     console.log("Create Ship clicked");
-    // TODO: How do I make this route to the customize page?
     const { history } = props
     history.push('/customize')
   }

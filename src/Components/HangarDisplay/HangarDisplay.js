@@ -1,36 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ShipApiService from '../../Services/ship-api-service';
 import './HangarDisplay.css';
 
-const shipList = [
-  {id:1, name:"Ship 1"},
-  {id:2, name:"Ship 2"},
-  {id:3, name:"Ship 3"},
-  {id:4, name:"Ship 4"}
-];
-
-const HangarDisplay = (props) => {
+const HangarDisplay = () =>  {
+  const [ships, setShips] = useState([])
 
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {
+        console.log("Inside getShips");
         console.log(ships);
+        setShips(ships);
       })
   },[])
+  // state = { ships: []}
+
+  // componentDidMount() {
+  //   ShipApiService.getShips()
+  //     .then(ships => {
+  //       console.log("Inside getShips");
+  //       console.log(ships);
+  //       this.setState({ships: ships})
+  //     })
+  // }
+
+
   return(
-    shipList.map((ship) => {
+    ships.map((ship) => {
       return (
-        <div className="hangarRoom">
+        <div className="hangarRoom" key={"ship-" + ship.ship_id}>
           <div className="shipId">
-            {ship.id}
+            {ship.ship_id}
           </div>
           <div className="shipName">
-            {ship.name}
+            {ship.ship_name}
           </div>
         </div>
       );
     })
   )
+  
 };
 
 export default HangarDisplay;

@@ -18,6 +18,7 @@ import AuthApiService from '../../Services/auth-api-service'
 
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     IdleService.setIdleCallback(logoutFromIdle)
@@ -35,14 +36,13 @@ const App = () => {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
-    // FIXME: TypeError: undefined has no properties 
-    this.forceUpdate()
+    setIsLoggedIn(false)
   }
 
   return (
     <div className="App">
       <header className="App_header">
-        <Header />
+        <Header isLoggedIn={isLoggedIn}/>
       </header>
       <main className="App_main">
         <Switch>
@@ -50,16 +50,16 @@ const App = () => {
             exact path={'/'}
             component={LandingPage}
           />
-          {/* FIXME: Add PublicOnlyRoute back in and debug it */}
           <PublicOnlyRoute
             path={'/signup'}
             component={SignupPage}
           />
           <PublicOnlyRoute
             path={'/login'}
-            component={LoginPage}
+            // component={LoginPage}
+            component={() => <LoginPage onLogin={setIsLoggedIn}/>}
+            componentProps={{onLogin: setIsLoggedIn}}
           />
-          {/* FIXME: HangarPage is colored oddly. Also, should this be /hangar/:hangarId */}
           <PrivateRoute
             path={'/hangar'}
             component={HangarPage}

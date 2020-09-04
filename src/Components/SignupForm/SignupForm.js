@@ -5,16 +5,12 @@ import './SignupForm.css';
 const SignupForm = (props) => {
   const [error, setError] = useState(null);
 
-  // FIXME: Change hooks and change Input to html instead of Component.
   // TODO: I want to move the error message to the SignupPage. Maybe a pop-up tooltip?
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log("Hello World")
     const { username, password, passwordVerify } = e.target;
 
     if(password.value !== passwordVerify.value){
-      // console.log("handleSubmit -> passwordVerify", passwordVerify)
-      // console.log("handleSubmit -> password", password)
       setError("Password do not match");
       return;
     }

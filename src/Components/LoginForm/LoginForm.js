@@ -5,7 +5,6 @@ import './LoginForm.css';
 const LoginForm = (props) => {
   const [error, setError] = useState(null);
 
-  // FIXME: Change hooks and change Input to html instead of Component.
   // TODO: I want to move the error message to the SignupPage. Maybe a pop-up tooltip?
   const handleSubmitJwtAuth = (e) => {
     e.preventDefault()

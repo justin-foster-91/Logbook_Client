@@ -1,9 +1,16 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+// import LogoutPage from '../LogoutPage/LogoutPage'
 
 const Header = (props) => {
-  return (
+  return props.isLoggedIn ? (
+    <div className="header">
+      <Link to='/logout'>
+        Logout
+      </Link>
+    </div>
+  ) : (
     <div className="header">
       <Link to='/signup'>
         Create Account
@@ -13,7 +20,8 @@ const Header = (props) => {
         Login
       </Link>
     </div>
-  );
+  ) 
+
 }
 
 export default Header;
