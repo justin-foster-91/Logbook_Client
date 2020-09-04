@@ -10,12 +10,13 @@ import SignupPage from "../../Routes/SignupPage/SignupPage";
 import LoginPage from "../../Routes/LoginPage/LoginPage";
 import HangarPage from "../../Routes/HangarPage/HangarPage";
 import CustomizePage from "../../Routes/CustomizePage/CustomizePage";
+import LogoutPage from "../../Routes/LogoutPage/LogoutPage";
 import AboutPage from "../../Routes/AboutPage/AboutPage";
 import NotFoundPage from "../../Routes/NotFoundPage/NotFoundPage";
 import IdleService from '../../Services/idle-service'
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
-
+import ShipContext from '../Context/ShipContext';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,13 +24,14 @@ const App = () => {
   useEffect(() => {
     IdleService.setIdleCallback(logoutFromIdle)
     if (TokenService.hasAuthToken()) {
+      setIsLoggedIn(true)
 
       IdleService.registerIdleTimerResets()
 
       TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken()
       })
-    }
+    } 
   },[])
 
   const logoutFromIdle = () => {
@@ -56,17 +58,30 @@ const App = () => {
           />
           <PublicOnlyRoute
             path={'/login'}
-            // component={LoginPage}
             component={() => <LoginPage onLogin={setIsLoggedIn}/>}
             componentProps={{onLogin: setIsLoggedIn}}
+          />
+          <PrivateRoute
+            path={'/hangar/:id'}
+            component={CustomizePage}
           />
           <PrivateRoute
             path={'/hangar'}
             component={HangarPage}
           />
-          <PrivateRoute
-            path={'/customize'}
+          {/* <PrivateRoute
+            path={'/create_new'}
             component={CustomizePage}
+          /> */}
+          {/* <PrivateRoute
+            path={`/:${ship.ship_id}`}
+            component={CustomizePage}
+          /> */}
+          <PrivateRoute
+            path={'/logout'}
+            component={() => <LogoutPage 
+              // setIsLoggedIn={setIsLoggedIn}
+            />}
           />
           <Route
             path={'/about'}

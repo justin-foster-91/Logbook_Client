@@ -7,7 +7,7 @@ const HangarPage = (props) => {
   const clickNewShip = () => {
     console.log("Create Ship clicked");
     const { history } = props
-    history.push('/customize')
+    history.push('/create')
   }
     return (
       <div>
@@ -22,22 +22,3 @@ const HangarPage = (props) => {
 }
 
 export default HangarPage;
-
-
-// const HangarPage = (props) => {
-//   return (
-//     <div>
-//       <h1>
-//         {"Hello Hangar Page"}
-//       </h1>
-//     </div>
-//   );
-// }
-
-// HangarPage.defaultProps = {
-//   history: {
-//     push: () => {},
-//   },
-// }
-
-// export default HangarPage;

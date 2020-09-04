@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 const Header = (props) => {
   return props.isLoggedIn ? (
     <div className="header">
+      <Link to='/hangar'>
+        My Hangar
+      </Link>
+      {" | "}
       <Link to='/logout'>
         Logout
       </Link>

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ShipApiService from '../../Services/ship-api-service';
+import { Link } from 'react-router-dom';
 import './HangarDisplay.css';
+import ShipApiService from '../../Services/ship-api-service';
+import CustomizePage from '../../Routes/CustomizePage/CustomizePage';
+import PrivateRoute from '../Utils/PrivateRoute';
+import ShipContext from '../Context/ShipContext';
 
 const HangarDisplay = () =>  {
   const [ships, setShips] = useState([])
@@ -8,36 +12,26 @@ const HangarDisplay = () =>  {
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {
-        console.log("Inside getShips");
-        console.log(ships);
         setShips(ships);
       })
   },[])
-  // state = { ships: []}
-
-  // componentDidMount() {
-  //   ShipApiService.getShips()
-  //     .then(ships => {
-  //       console.log("Inside getShips");
-  //       console.log(ships);
-  //       this.setState({ships: ships})
-  //     })
-  // }
-
 
   return(
-    ships.map((ship) => {
-      return (
-        <div className="hangarRoom" key={"ship-" + ship.ship_id}>
-          <div className="shipId">
-            {ship.ship_id}
+      ships.map((ship) => {
+        return (
+          <div className="hangarDock" key={"ship-" + ship.ship_id}>
+            {/* <PrivateRoute
+              path={`/:${ship.ship_id}`}
+              component={CustomizePage}
+            /> */}
+            <Link to={`/hangar/${ship.ship_id}`}>
+              <div className="shipName">
+                {ship.ship_name}
+              </div>
+            </Link>
           </div>
-          <div className="shipName">
-            {ship.ship_name}
-          </div>
-        </div>
-      );
-    })
+        );
+      })
   )
   
 };

@@ -1,17 +1,24 @@
-.hangarRoom {
-  display: flex;
+.hangarDock {
+  /* display: flex; */
   justify-content: center;
 }
 
-.shipId {
-  border: 2px solid black;
+#shipId {
+  /* border: 2px solid black;
   min-width: 50px;
   margin: 2px;
-  flex-grow: 1;
+  flex-grow: 1; */
+  display: none;
 }
 
 .shipName {
   border: 2px solid black;
   margin: 2px;
   flex-grow: 3;
+}
+
+#shipList {
+  display: block;
+  list-style-type: decimal;
+  /* background: red; */
 }
