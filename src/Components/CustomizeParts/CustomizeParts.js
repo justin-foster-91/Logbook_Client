@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CustomizeParts.css';
-
-const renderPart = (part) => {
-  return (
-    <div className="selectFrame selectP">
-      <p>{part.frame}</p>
-      <p>Drop down goes here</p>
-      <p>{part.cost}</p>
-    </div>
-  )
-}
+import ShipApiService from '../../Services/ship-api-service';
 
 const CustomizeParts = (props) => {
+  const [ships, setShips] = useState([])
+
+  useEffect(() => {
+    ShipApiService.getShips()
+      .then(ships => {
+        setShips(ships);
+      })
+  },[])
+
   return (
     <div className="customizeDisplay">
-      <label htmlFor="shipName">Ship name: {props.ship.ship_name}</label>
-      <input type="text" className="shipName" placeholder={props.ship.ship_name}/><br/>
       
+      <label htmlFor="shipName">Ship name: </label>
+      <input type="text" className="shipName" placeholder={props.targetShip.ship_name}/><br/>
+
       <div className="partSelections">
-        {props.ship.ship_parts.map(renderPart)}
-        {/* <div className="selectCore selectP">
-          <p>Power Core</p>
-          <p>Drop down goes here</p>
-          <p>BP Cost:</p>
-        </div> */}
+        {props.targetShip.ship_parts.map((part) => {
+          return (
+            <div className="partSelections" key={"part-" + part.part_id}>
+              <div className="selectFrame selectP">
+                <p>{part.frame}</p>
+                <p>Drop down goes here</p>
+                <p>{part.cost}</p>
+              </div>
+            </div>
+          )
+        })}
+
       </div>
 
       <div className="totalCost">Total BP Cost: </div> 

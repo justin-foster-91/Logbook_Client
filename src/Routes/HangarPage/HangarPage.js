@@ -7,7 +7,7 @@ const HangarPage = (props) => {
   const clickNewShip = () => {
     console.log("Create Ship clicked");
     const { history } = props
-    history.push('/create')
+    history.push('/create-ship')
   }
     return (
       <div>

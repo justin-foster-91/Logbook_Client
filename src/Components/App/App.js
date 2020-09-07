@@ -16,7 +16,7 @@ import NotFoundPage from "../../Routes/NotFoundPage/NotFoundPage";
 import IdleService from '../../Services/idle-service'
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
-import ShipContext from '../Context/ShipContext';
+// import ShipContext from '../Context/ShipContext';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,14 +69,10 @@ const App = () => {
             path={'/hangar'}
             component={HangarPage}
           />
-          {/* <PrivateRoute
-            path={'/create_new'}
+          <PrivateRoute
+            path={'/create-ship'}
             component={CustomizePage}
-          /> */}
-          {/* <PrivateRoute
-            path={`/:${ship.ship_id}`}
-            component={CustomizePage}
-          /> */}
+          />
           <PrivateRoute
             path={'/logout'}
             component={() => <LogoutPage 

@@ -16,8 +16,8 @@ const ShipApiService = {
         : res.json()
     )
   },
-  getShip(ship_id){
-    return fetch(`${config.API_ENDPOINT}/hangar/${ship_id}`, {
+  getTargetShip(targetShip_id){
+    return fetch(`${config.API_ENDPOINT}/hangar/${targetShip_id}`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
