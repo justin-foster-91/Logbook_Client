@@ -48,7 +48,6 @@ const LoginForm = (props) => {
       </div>
     </>
   )
-
 };
 
 LoginForm.defaultProps = {
