@@ -1,7 +1,7 @@
 import React from 'react';
-import './CreateShip.css'
+import './CreateShipPage.css';
 
-function CreateShip(props) {
+function CreateShipPage(props) {
   return (
     <div>
       <h1>
@@ -11,4 +11,4 @@ function CreateShip(props) {
   );
 }
 
-export default CreateShip;
+export default CreateShipPage;

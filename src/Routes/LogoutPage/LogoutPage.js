@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import TokenService from '../../Services/token-service'
+import React from 'react';
+import TokenService from '../../Services/token-service';
 
 const LogoutPage = (props) => {
 
   const handleLogoutSuccess = () => {
-    // TokenService.clearAuthToken()
+    TokenService.clearAuthToken()
     const { history } = props
-    // history.push('/')
+    history.push('/')
     console.log("on logout page");
     if(props.setIsLoggedIn){
       console.log("inside logout if");
@@ -14,11 +14,12 @@ const LogoutPage = (props) => {
     }
   }
 
-  // handleLogoutSuccess()
+  handleLogoutSuccess()
 
   return (
     <div>
       <h1>{"Hello Logout Page"}</h1>
+      <p>How did you even get here? That's not supposed to happen.</p>
     </div>
   );
 };

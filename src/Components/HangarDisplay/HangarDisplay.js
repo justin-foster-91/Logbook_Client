@@ -14,19 +14,18 @@ const HangarDisplay = () =>  {
   },[])
 
   return(
-      ships.map((ship) => {
-        return (
-          <div className="hangarDock" key={"ship-" + ship.id}>
-            <Link to={`/hangar/${ship.id}`}>
-              <div className="shipName">
-                {ship.ship_name}
-              </div>
-            </Link>
-          </div>
-        );
-      })
+    ships.map((ship) => {
+      return (
+        <div className="hangarDock" key={"ship-" + ship.id}>
+          <Link to={`/hangar/${ship.id}`}>
+            <div className="shipName">
+              {ship.ship_name}
+            </div>
+          </Link>
+        </div>
+      );
+    })
   )
-  
 };
 
 export default HangarDisplay;

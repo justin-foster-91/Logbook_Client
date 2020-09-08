@@ -10,6 +10,7 @@ import SignupPage from "../../Routes/SignupPage/SignupPage";
 import LoginPage from "../../Routes/LoginPage/LoginPage";
 import HangarPage from "../../Routes/HangarPage/HangarPage";
 import CustomizePage from "../../Routes/CustomizePage/CustomizePage";
+import CreateShipPage from "../../Routes/CreateShipPage/CreateShipPage";
 import LogoutPage from "../../Routes/LogoutPage/LogoutPage";
 import AboutPage from "../../Routes/AboutPage/AboutPage";
 import NotFoundPage from "../../Routes/NotFoundPage/NotFoundPage";
@@ -39,7 +40,7 @@ const App = () => {
     TokenService.clearCallbackBeforeExpiry()
     IdleService.unRegisterIdleResets()
     setIsLoggedIn(false)
-  }
+  } 
 
   return (
     <div className="App">
@@ -71,12 +72,12 @@ const App = () => {
           />
           <PrivateRoute
             path={'/create-ship'}
-            component={CustomizePage}
+            component={CreateShipPage}
           />
           <PrivateRoute
             path={'/logout'}
             component={() => <LogoutPage 
-              // setIsLoggedIn={setIsLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
             />}
           />
           <Route

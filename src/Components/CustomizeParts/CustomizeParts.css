@@ -1,3 +1,8 @@
+.customizeDisplay {
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+}
 
 .partSelections {
   display: flex;
@@ -9,6 +14,12 @@
   display: flex;
   flex-direction: row;
   
+}
+
+.selectPart {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .selectP p {

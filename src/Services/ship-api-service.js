@@ -16,14 +16,14 @@ const ShipApiService = {
         : res.json()
     )
   },
-  getTargetShip(targetShip_id){
-    return fetch(`${config.API_ENDPOINT}/hangar/${targetShip_id}`, {
+  getTargetShip(shipId){
+    return fetch(`${config.API_ENDPOINT}/hangar/${shipId}`, {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })  
-    .then(res =>
+    .then(res => 
       (!res.ok)
         ? res.json().then(e => Promise.reject(e))
         : res.json()

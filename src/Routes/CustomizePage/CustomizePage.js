@@ -6,9 +6,12 @@ import ShipApiService from '../../Services/ship-api-service';
 const CustomizePage = (props) => {
   const [targetShip, setTargetShip] = useState(undefined)
 
+  const { id } = props.match.params
+
   // props.match.params.id
+  // console.log(props.match.params.id);
   useEffect(() => {
-    ShipApiService.getTargetShip()
+    ShipApiService.getTargetShip(id)
       .then(targetShip => {
         setTargetShip(targetShip)
       })
