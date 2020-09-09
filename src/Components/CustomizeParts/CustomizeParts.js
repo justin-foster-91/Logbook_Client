@@ -5,6 +5,29 @@ import ShipApiService from '../../Services/ship-api-service';
 const CustomizeParts = (props) => {
   const [ships, setShips] = useState([])
 
+  const parts = props.targetShip.ship_parts;
+  const partsArr = Object.keys(parts);
+
+  let partsCapitalized = []
+  const capitalizeParts = () => {partsArr.forEach(part => {
+    partsCapitalized.push(part.charAt(0).toUpperCase() + part.slice(1));
+    return partsCapitalized;
+  })};
+  capitalizeParts();
+
+  // const capitalStr = partsArr[0].charAt(0).toUpperCase() + partsArr[0].slice(1);
+  // console.log("CustomizeParts -> capitalStr", capitalStr)
+
+  let i = 0;
+  const addI = () => {
+    i += 1;
+  }
+
+  let totalCost = 0;
+  const addTotal = (partCost) => {
+    totalCost += partCost;
+  }
+
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {
@@ -16,64 +39,6 @@ const CustomizeParts = (props) => {
     console.log("handleChangeOption -> e", e.target.value)
   }
 
-  const renderThrusters = (part) => {
-    return (
-      <div className="partSelections">
-        <div className="selectPart selectP">
-          <p>Thrusters</p>
-          <select className="dropdown" onChange={handleChangeOption}>
-          {part.options.map((option) => {
-            return(
-              <option value={option.name} key={"part-" + option.name}>{option.name}</option>
-            )
-          })}
-          </select>
-          <p>{part.cost}</p>
-        </div>
-      </div>
-    )
-  }
-
-  const renderCore = (part) => {
-    return (
-      <div className="partSelections">
-        <div className="selectPart selectP">
-          <p>Core</p>
-          <select className="dropdown" onChange={handleChangeOption}>
-          {part.options.map((option) => {
-            return(
-              <option value={option.name} key={"part-" + option.name}>{option.name}</option>
-            )
-          })}
-          </select>
-          <p>{part.cost}</p>
-        </div>
-      </div>
-    )
-  }
-
-  const renderParts = (part) => {
-    return (
-      <div className="partSelections">
-        <div className="selectPart selectP">
-          <p>{part.name}</p>
-          <select className="dropdown" onChange={handleChangeOption}>
-          {part.options.map((option) => {
-            return(
-              <option value={option.name} key={"part-" + option.name}>{option.name}</option>
-            )
-          })}
-          </select>
-          <p>{part.cost}</p>
-        </div>
-      </div>
-    )
-  }
-
-  const { core, thrusters } = props.targetShip.ship_parts
-  console.log("CustomizeParts -> props.targetShip.ship_parts", props.targetShip.ship_parts)
-
-
   return (
     <div className="customizeDisplay">
       
@@ -81,25 +46,26 @@ const CustomizeParts = (props) => {
       <input type="text" className="shipName" placeholder={props.targetShip.ship_name}/><br/>
 
       {/* <div className="partSelections"> */}
-        {/* {renderParts(props.targetShip.ship_parts)} */}
-        {renderCore(core)}
-        {renderThrusters(thrusters)}
-
-        {/* {props.targetShip.ship_parts.map((part) => {
-          return (
-            <div className="partSelections" key={"part-" + part.part_name}>
-              <div className="selectFrame selectP">
-                <p>{part.name}</p>
-                <p>Drop down goes here</p>
-                <p>{part.cost}</p>
-              </div>
-            </div>
-          )
-        })} */}
-
+        {Object.values(parts).map((part) =>       
+        <div className="partSelections">
+          <div className="selectPart selectP">
+            {/* {console.log("CustomizeParts -> parts", Object.keys(parts))} */}
+            <p>{partsCapitalized[i]}{addI()}</p>
+            <select className="dropdown" onChange={handleChangeOption}>
+            {part.options.map((option) => {
+              return(
+                <option value={option.name} key={"part-" + option.name}>{option.name}</option>
+              )
+                
+            })}
+            </select>
+            <p>{part.cost}</p>
+            {addTotal(part.cost)}
+          </div>
+        </div>)}
       {/* </div> */}
 
-      <div className="totalCost">Total BP Cost: </div> 
+          <div className="totalCost">Total BP Cost: {totalCost}</div> 
     </div>
   );
 };
