@@ -28,6 +28,29 @@ const ShipApiService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
     )
+  },
+  changePart(shipId, partKey, partName){
+    return fetch(`${config.API_ENDPOINT}/hangar/${shipId}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        partType: partKey,
+        partName: partName,
+        // article_id: articleId,
+        // text,
+      }),
+    })
+    .then(res => 
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+    )
+    // .then(res =>
+    //   res = 500  
+    // )
   }
 }
 

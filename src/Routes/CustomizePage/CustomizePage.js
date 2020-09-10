@@ -8,8 +8,6 @@ const CustomizePage = (props) => {
 
   const { id } = props.match.params
 
-  // props.match.params.id
-  // console.log(props.match.params.id);
   useEffect(() => {
     ShipApiService.getTargetShip(id)
       .then(targetShip => {
@@ -17,12 +15,20 @@ const CustomizePage = (props) => {
       })
   },[]) 
 
+  const changePart = (shipId, partType, partName) => {
+    ShipApiService.changePart(shipId, partType, partName)
+    .then(newShip => {
+    console.log("didItWork: ", newShip)
+      setTargetShip(newShip)
+    })
+  }
+
   return (
     <div>
       <h1>
         Hello Customize Page  
       </h1>
-      {targetShip ? <CustomizeParts targetShip={targetShip}/> : <div>Ship docking. Please wait.</div>}
+      {targetShip ? <CustomizeParts targetShip={targetShip} shipId={id} changePart={changePart}/> : <div>Ship docking. Please wait.</div>}
 
     </div>
   );

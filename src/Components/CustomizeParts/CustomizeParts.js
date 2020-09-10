@@ -3,69 +3,66 @@ import './CustomizeParts.css';
 import ShipApiService from '../../Services/ship-api-service';
 
 const CustomizeParts = (props) => {
-  const [ships, setShips] = useState([])
-
   const parts = props.targetShip.ship_parts;
-  const partsArr = Object.keys(parts);
+  const partsArr = Object.keys(props.targetShip.ship_parts);
 
-  let partsCapitalized = []
-  const capitalizeParts = () => {partsArr.forEach(part => {
-    partsCapitalized.push(part.charAt(0).toUpperCase() + part.slice(1));
-    return partsCapitalized;
-  })};
-  capitalizeParts();
 
-  // const capitalStr = partsArr[0].charAt(0).toUpperCase() + partsArr[0].slice(1);
-  // console.log("CustomizeParts -> capitalStr", capitalStr)
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-  let i = 0;
-  const addI = () => {
-    i += 1;
+  let totalCost = partsArr.reduce((accumulator, current) => {
+    return accumulator + parts[current].cost;
+  }, 0 );
+
+  const handleChangeOption = (e, partKey) => {
+    props.changePart(props.shipId, partKey, e.target.value)
   }
 
-  let totalCost = 0;
-  const addTotal = (partCost) => {
-    totalCost += partCost;
-  }
+  const handleDeleteShip = () => {
 
-  useEffect(() => {
-    ShipApiService.getShips()
-      .then(ships => {
-        setShips(ships);
-      })
-  },[]) 
-
-  const handleChangeOption = (e) => {
-    console.log("handleChangeOption -> e", e.target.value)
   }
 
   return (
     <div className="customizeDisplay">
       
       <label htmlFor="shipName">Ship name: </label>
-      <input type="text" className="shipName" placeholder={props.targetShip.ship_name}/><br/>
+      <input type="text" className="shipName" placeholder={props.targetShip.ship_name}/><br/><br/>
 
-      {/* <div className="partSelections"> */}
-        {Object.values(parts).map((part) =>       
-        <div className="partSelections">
+      <div className="partSelections">
+        <div className="partRows">
           <div className="selectPart selectP">
-            {/* {console.log("CustomizeParts -> parts", Object.keys(parts))} */}
-            <p>{partsCapitalized[i]}{addI()}</p>
-            <select className="dropdown" onChange={handleChangeOption}>
-            {part.options.map((option) => {
-              return(
-                <option value={option.name} key={"part-" + option.name}>{option.name}</option>
-              )
-                
-            })}
-            </select>
-            <p>{part.cost}</p>
-            {addTotal(part.cost)}
+            <p>{"Ship Parts"}</p>
+            <p>{"Part Type"}</p>
+            <p>{"Part Choices"}</p>
+            <p>{"Part Cost"}</p>
           </div>
-        </div>)}
-      {/* </div> */}
+        </div>
 
-          <div className="totalCost">Total BP Cost: {totalCost}</div> 
+        {Object.keys(parts).map((key) =>       
+          <div className="partRows">
+            <div className="selectPart selectP" >
+              <p>{capitalize(key)}</p>
+              <p>{parts[key].name}</p>
+              <select className="dropdown" onChange={(e) => handleChangeOption(e, key)}>
+              {parts[key].options.map((option) => {
+                return(
+                  <option value={option.name} key={"part-" + option.name}>{option.name}</option>
+                )
+                  
+              })}
+              </select>
+              <p>{parts[key].cost}</p>
+            </div>
+          </div>)}
+      </div>
+
+      <div className="totalCost">Total BP Cost: {totalCost}</div> 
+
+      <div className="saveAndDelete">
+        {/* <button onClick={handleSaveChange}>Save Changes</button> */}
+        <button onClick={handleDeleteShip}>Delete Ship</button>
+      </div>
     </div>
   );
 };
