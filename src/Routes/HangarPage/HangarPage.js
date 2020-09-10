@@ -5,7 +5,7 @@ import HangarDisplay from '../../Components/HangarDisplay/HangarDisplay';
 const HangarPage = (props) => {
 
   const clickNewShip = () => {
-    console.log("Create Ship clicked");
+    // console.log("Create Ship clicked");
     const { history } = props
     history.push('/create-ship')
   }

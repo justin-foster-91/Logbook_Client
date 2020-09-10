@@ -20,7 +20,7 @@ const SignupForm = (props) => {
       password: password.value,
     })
       .then(user => {
-        console.log("New user submitted");
+        // console.log("New user submitted");
         username.value = ''
         password.value = ''
         passwordVerify.value = ''

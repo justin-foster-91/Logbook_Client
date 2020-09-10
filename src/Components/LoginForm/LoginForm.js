@@ -16,7 +16,7 @@ const LoginForm = (props) => {
       password: password.value,
     })
       .then(user => {
-        console.log("Existing user logging in");
+        // console.log("Existing user logging in");
         username.value = ''
         password.value = ''
         props.onLoginSuccess()

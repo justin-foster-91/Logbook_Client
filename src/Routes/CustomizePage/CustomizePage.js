@@ -18,10 +18,10 @@ const CustomizePage = (props) => {
   const changePart = (shipId, partType, partName) => {
     ShipApiService.changePart(shipId, partType, partName)
     .then(newShip => {
-    console.log("didItWork: ", newShip)
-      setTargetShip(newShip)
-    })
-  }
+    // console.log("didItWork: ", newShip)
+    //   setTargetShip(newShip)
+    // })
+  })}
 
   return (
     <div>

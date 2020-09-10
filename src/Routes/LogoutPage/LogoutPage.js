@@ -7,9 +7,9 @@ const LogoutPage = (props) => {
     TokenService.clearAuthToken()
     const { history } = props
     history.push('/')
-    console.log("on logout page");
+    // console.log("on logout page");
     if(props.setIsLoggedIn){
-      console.log("inside logout if");
+      // console.log("inside logout if");
       props.setIsLoggedIn(false);
     }
   }

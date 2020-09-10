@@ -8,9 +8,9 @@ const LoginPage = (props) => {
   const handleLoginSuccess = () => {
     const { history } = props
     history.push('/hangar')
-    console.log("on login page");
+    // console.log("on login page");
     if(props.onLogin){
-      console.log("inside login if");
+      // console.log("inside login if");
       props.onLogin(true);
     }
   }
