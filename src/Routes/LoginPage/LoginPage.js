@@ -19,7 +19,7 @@ const LoginPage = (props) => {
     <div className="loginDisplay">
       <div className="loginHeader">
         <h1>
-          {"Login Page"}
+          Login to Logbook
         </h1>
       </div>
 
