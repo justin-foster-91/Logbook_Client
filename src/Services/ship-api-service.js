@@ -51,6 +51,36 @@ const ShipApiService = {
     // .then(res =>
     //   res = 500  
     // )
+  },
+  createShip(){
+    return fetch(`${config.API_ENDPOINT}/hangar`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({}),
+    })  
+    .then(res => {
+      console.log("res", res)
+      return (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+    })
+  },
+  deleteShip(shipId){
+    return fetch(`${config.API_ENDPOINT}/hangar/${shipId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+    .then(res => 
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+    )
   }
 }
 

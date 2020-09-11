@@ -21,12 +21,23 @@ const CustomizePage = (props) => {
       setTargetShip(newShip)
   })}
 
+  const deleteShip = (shipId) => {
+    ShipApiService.deleteShip(shipId)
+  }
+
   return (
     <div>
       <h1>
         Hello Customize Page  
       </h1>
-      {targetShip ? <CustomizeParts targetShip={targetShip} shipId={id} changePart={changePart}/> : <div>Ship docking. Please wait.</div>}
+      {targetShip ? 
+      <CustomizeParts 
+        targetShip={targetShip} 
+        shipId={id} 
+        changePart={changePart}
+        deleteShip={deleteShip}
+      /> : 
+      <div>Ship docking. Please wait.</div>}
 
     </div>
   );

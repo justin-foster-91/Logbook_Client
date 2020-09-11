@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './HangarPage.css';
 import HangarDisplay from '../../Components/HangarDisplay/HangarDisplay';
+import ShipApiService from '../../Services/ship-api-service';
 
 const HangarPage = (props) => {
+  const [ships, setShips] = useState([])
 
   const clickNewShip = () => {
-    // console.log("Create Ship clicked");
-    const { history } = props
-    history.push('/create-ship')
+    ShipApiService.createShip()
+      .then(newShip => {
+        console.log("clickNewShip -> newShip", newShip)
+        console.log("clickNewShip -> ships", ships)
+        ships.push(newShip)
+        console.log("clickNewShip -> newShip", newShip)
+        console.log("clickNewShip -> ships", ships)
+        setShips(ships)
+      })
+      .catch(e => console.log(e))
   }
-    return (
-      <div>
-        <h1>
-          {"Hello Hangar Page"}
-        </h1>
-        <HangarDisplay />
-        <button onClick={() => clickNewShip()}>Create New Ship</button>
-      </div>
-    );
+  return (
+    <div>
+      <h1>
+        {"Hello Hangar Page"}
+      </h1>
+      <HangarDisplay setShips={setShips} ships={ships}/>
+      <button onClick={() => clickNewShip()}>Create New Ship</button>
+    </div>
+  );
   
 }
 

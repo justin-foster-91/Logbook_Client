@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import './HangarDisplay.css';
 import ShipApiService from '../../Services/ship-api-service';
 
-const HangarDisplay = () =>  {
-  const [ships, setShips] = useState([])
+const HangarDisplay = (props) =>  {
+  // const [ships, setShips] = useState([])
 
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {
-        setShips(ships);
+        props.setShips(ships);
       })
   },[])
 
   return(
-    ships.map((ship) => {
+    props.ships.map((ship) => {
       return (
         <div className="hangarDock" key={"ship-" + ship.id}>
           <Link to={`/hangar/${ship.id}`}>

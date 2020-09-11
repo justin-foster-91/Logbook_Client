@@ -20,7 +20,7 @@ const CustomizeParts = (props) => {
   }
 
   const handleDeleteShip = () => {
-
+    props.deleteShip(props.shipId)
   }
 
   return (
