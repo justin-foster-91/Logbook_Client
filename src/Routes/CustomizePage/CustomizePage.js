@@ -23,6 +23,8 @@ const CustomizePage = (props) => {
 
   const deleteShip = (shipId) => {
     ShipApiService.deleteShip(shipId)
+    const { history } = props
+    history.push('/hangar')
   }
 
   return (

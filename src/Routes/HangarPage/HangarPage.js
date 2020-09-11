@@ -9,11 +9,8 @@ const HangarPage = (props) => {
   const clickNewShip = () => {
     ShipApiService.createShip()
       .then(newShip => {
-        console.log("clickNewShip -> newShip", newShip)
-        console.log("clickNewShip -> ships", ships)
+        // HEEEELP
         ships.push(newShip)
-        console.log("clickNewShip -> newShip", newShip)
-        console.log("clickNewShip -> ships", ships)
         setShips(ships)
       })
       .catch(e => console.log(e))
