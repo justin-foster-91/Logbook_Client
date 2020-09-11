@@ -47,6 +47,8 @@ const App = () => {
       <header className="App_header">
         <Header isLoggedIn={isLoggedIn}/>
       </header>
+      <p></p>
+      <p></p>
       <main className="App_main">
         <Switch>
           <Route

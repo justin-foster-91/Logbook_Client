@@ -4,9 +4,10 @@ import './Footer.css';
 
 const Footer = (props) => {
   return (
-    <div className="Footer">
-      <Link to="/about">About</Link>
-    </div>
+    null
+    // <div className="Footer">
+    //   <Link to="/about">About</Link>
+    // </div>
   );
 }
 

@@ -15,6 +15,7 @@
   border: 2px solid black;
   margin: 2px;
   flex-grow: 3;
+  background: rgba(0, 0, 0, .5)
 }
 
 #shipList {

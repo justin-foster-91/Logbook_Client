@@ -18,16 +18,20 @@
 
 .selectPart {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
 }
 
 .selectP p {
   border: 2px solid black;
   margin: 2px;
+  background: rgba(0, 0, 0, .5);
+  /* display: flex;
+  align-self: center; */
 }
 
 /* p{
   border: 2px solid black;
   margin: 2px;
 } */
+

@@ -18,7 +18,7 @@ const LogoutPage = (props) => {
 
   return (
     <div>
-      <h1>{"Hello Logout Page"}</h1>
+      <h1>Logout Page</h1>
       <p>How did you even get here? That's not supposed to happen.</p>
     </div>
   );

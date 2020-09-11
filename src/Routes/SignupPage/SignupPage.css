@@ -1,6 +1,7 @@
 .signupBody {
   border: 2px solid black;
   /* padding: 3%; */
+  background: rgba(0, 0, 0, .5)
 }
 
 form {

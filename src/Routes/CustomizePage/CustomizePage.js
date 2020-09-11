@@ -30,7 +30,7 @@ const CustomizePage = (props) => {
   return (
     <div>
       <h1>
-        Hello Customize Page  
+        Ship Customization Page  
       </h1>
       {targetShip ? 
       <CustomizeParts 

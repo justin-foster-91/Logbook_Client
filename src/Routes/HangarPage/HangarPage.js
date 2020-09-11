@@ -9,7 +9,6 @@ const HangarPage = (props) => {
   const clickNewShip = () => {
     ShipApiService.createShip()
       .then(newShip => {
-        // HEEEELP
         const newShips = ships.slice();
 
         newShips.push(newShip)
@@ -22,7 +21,7 @@ const HangarPage = (props) => {
   return (
     <div>
       <h1>
-        {"Hello Hangar Page"}
+        My Personal Hangar
       </h1>
       <HangarDisplay setShips={setShips} ships={ships}/>
       <button onClick={() => clickNewShip()}>Create New Ship</button>

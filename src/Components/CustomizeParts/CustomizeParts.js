@@ -27,7 +27,7 @@ const CustomizeParts = (props) => {
     <div className="customizeDisplay">
       
       <label htmlFor="shipName">Ship name: </label>
-      <input type="text" className="shipName" placeholder={props.targetShip.ship_name}/><br/><br/>
+      <input type="text" className="shipNameCustomize" placeholder={props.targetShip.ship_name}/><br/><br/>
 
       <div className="partSelections">
         <div className="partRows">

@@ -5,7 +5,7 @@ function CreateShipPage(props) {
   return (
     <div>
       <h1>
-        {"Hello Create Ship Page"}
+        Hello Create Ship Page
       </h1>
     </div>
   );

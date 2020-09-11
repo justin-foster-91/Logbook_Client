@@ -4,7 +4,7 @@ const AboutPage = (props) => {
   return (
     <div>
       <h1>
-        {"Hello About Page"}
+        Hello About Page
       </h1>
     </div>
   );
