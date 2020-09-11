@@ -14,7 +14,7 @@ const SignupPage = (props) => {
     <div className="signupDisplay">
       <div className="signupHeader">
         <h1>
-          Signup Page
+          Signup for Logbook Here!
         </h1>
       </div>
       <section className="signupBody">
