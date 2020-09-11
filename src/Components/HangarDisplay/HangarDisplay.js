@@ -5,7 +5,8 @@ import ShipApiService from '../../Services/ship-api-service';
 
 const HangarDisplay = (props) =>  {
   // const [ships, setShips] = useState([])
-
+  console.log(props.ships);
+  
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {

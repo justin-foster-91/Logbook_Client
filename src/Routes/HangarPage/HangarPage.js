@@ -10,10 +10,14 @@ const HangarPage = (props) => {
     ShipApiService.createShip()
       .then(newShip => {
         // HEEEELP
-        ships.push(newShip)
-        setShips(ships)
+        const newShips = ships.slice();
+
+        newShips.push(newShip)
+        setShips(newShips)
+        console.log("clickNewShip -> ships", ships)
       })
       .catch(e => console.log(e))
+
   }
   return (
     <div>
