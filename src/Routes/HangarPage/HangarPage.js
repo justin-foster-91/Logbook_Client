@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './HangarPage.css';
 import HangarDisplay from '../../Components/HangarDisplay/HangarDisplay';
 import ShipApiService from '../../Services/ship-api-service';

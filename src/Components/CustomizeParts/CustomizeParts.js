@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './CustomizeParts.css';
-import ShipApiService from '../../Services/ship-api-service';
 
 const CustomizeParts = (props) => {
   const parts = props.targetShip.ship_parts;

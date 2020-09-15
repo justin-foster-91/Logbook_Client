@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HangarDisplay.css';
 import ShipApiService from '../../Services/ship-api-service';
 
 const HangarDisplay = (props) =>  {
-  // const [ships, setShips] = useState([])
-  console.log(props.ships);
   
   useEffect(() => {
     ShipApiService.getShips()
       .then(ships => {
         props.setShips(ships);
       })
-  },[])
+  })
 
   return(
     props.ships.map((ship) => {
