@@ -11,6 +11,7 @@ https://starfinder-client.justin-foster-91.vercel.app/
 
 ### Demo Account
 Username: dunder
+
 Password: password
 
 
@@ -28,4 +29,5 @@ On the 'Customization' page, all changes selected from the dropdown menu are aut
 
 #### Technology Used
 Front End: JavaScript, React, HTML5, CSS3 
+
 Back End: Node.js, Postgres, Mocha & Chai, REST APIs 3 
