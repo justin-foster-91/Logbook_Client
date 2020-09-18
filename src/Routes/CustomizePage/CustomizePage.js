@@ -13,7 +13,7 @@ const CustomizePage = (props) => {
       .then(targetShip => {
         setTargetShip(targetShip)
       })
-  })
+  },[id])
 
   const changePart = (shipId, partType, partName) => {
     ShipApiService.changePart(shipId, partType, partName)

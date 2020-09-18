@@ -5,6 +5,7 @@ import CustomizePage from './CustomizePage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<BrowserRouter><CustomizePage /></BrowserRouter>, div);
+  ReactDOM.render(
+    <BrowserRouter><CustomizePage /></BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 })
