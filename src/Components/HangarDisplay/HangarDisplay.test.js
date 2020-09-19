@@ -5,14 +5,14 @@ import renderer from 'react-test-renderer';
 import HangarDisplay from './HangarDisplay';
 
 it('renders without crashing', () => {
-  // const div = document.createElement('div');
-  // ReactDOM.render(<BrowserRouter><HangarDisplay /></BrowserRouter>, div);
-  // ReactDOM.unmountComponentAtNode(div);
+  const div = document.createElement('div');
+  ReactDOM.render(<BrowserRouter><HangarDisplay ships={[]}/></BrowserRouter>, div);
+  ReactDOM.unmountComponentAtNode(div);
 })
 
-// it('renders the UI as expected', () => {
-//   const tree = renderer
-//     .create(<BrowserRouter><HangarDisplay /></BrowserRouter>)
-//     .toJSON();
-//   expect(tree).toMatchSnapshot();  
-// });
+it('renders the UI as expected', () => {
+  const tree = renderer
+    .create(<BrowserRouter><HangarDisplay ships={[]}/></BrowserRouter>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();  
+});

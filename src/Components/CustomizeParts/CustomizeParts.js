@@ -29,6 +29,7 @@ const CustomizeParts = (props) => {
 
       <div className="partSelections">
         <table>
+          <tbody>
           <tr>
             <th>{"Ship Parts"}</th>
             <th>{"Part Type"}</th>
@@ -51,6 +52,7 @@ const CustomizeParts = (props) => {
               <td>{parts[key].cost}</td>
             </tr>
             )}
+          </tbody>
         </table>
       </div>
 
