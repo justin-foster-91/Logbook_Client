@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import NotFoundPage from './NotFoundPage';
 
 it('renders without crashing', () => {
@@ -7,3 +8,10 @@ it('renders without crashing', () => {
   ReactDOM.render(<NotFoundPage />, div);
   ReactDOM.unmountComponentAtNode(div);
 })
+
+it('renders the UI as expected', () => {
+  const tree = renderer
+    .create(<NotFoundPage />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();  
+});

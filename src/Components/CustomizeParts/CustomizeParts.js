@@ -25,35 +25,33 @@ const CustomizeParts = (props) => {
   return (
     <div className="customizeDisplay">
       
-      <h3 class="shipName">Ship name: {props.targetShip.ship_name}</h3>
-      {/* <input type="text" className="shipNameCustomize" placeholder={props.targetShip.ship_name}/><br/><br/> */}
+      <h3 className="shipName">Ship name: {props.targetShip.ship_name}</h3>
 
       <div className="partSelections">
-        <div className="partRows">
-          <div className="selectPart selectP">
-            <p>{"Ship Parts"}</p>
-            <p>{"Part Type"}</p>
-            <p>{"Part Choices"}</p>
-            <p>{"Part Cost"}</p>
-          </div>
-        </div>
-
-        {Object.keys(parts).map((key) =>       
-          <div className="partRows">
-            <div className="selectPart selectP" >
-              <p>{capitalize(key)}</p>
-              <p>{parts[key].name}</p>
-              <select className="dropdown" onChange={(e) => handleChangeOption(e, key)}>
-              {parts[key].options.map((option) => {
-                return(
-                  <option value={option.name} key={"part-" + option.name}>{option.name}</option>
-                )
-                  
-              })}
-              </select>
-              <p>{parts[key].cost}</p>
-            </div>
-          </div>)}
+        <table>
+          <tr>
+            <th>{"Ship Parts"}</th>
+            <th>{"Part Type"}</th>
+            <th>{"Part Choices"}</th>
+            <th>{"Part Cost"}</th>
+          </tr>
+          {Object.keys(parts).map((key) =>       
+            <tr key={key + " part"}>
+              <td>{capitalize(key)}</td>
+              <td>{parts[key].name}</td>
+              <td>
+                <select className="dropdown" onChange={(e) => handleChangeOption(e, key)}>
+                {parts[key].options.map((option) => {
+                  return(
+                    <option value={option.name} key={"part-" + option.name}>{option.name}</option>
+                  )
+                })}
+                </select>
+              </td>
+              <td>{parts[key].cost}</td>
+            </tr>
+            )}
+        </table>
       </div>
 
       <div className="totalCost">Total BP Cost: {totalCost}</div> 

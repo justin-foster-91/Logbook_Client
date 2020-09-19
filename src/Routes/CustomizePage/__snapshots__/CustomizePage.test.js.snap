@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div>
+  <h1>
+    Ship Customizer
+  </h1>
+  <div>
+    Ship docking. Please wait.
+  </div>
+</div>
+`;
